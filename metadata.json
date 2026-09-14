@@ -1,0 +1,6 @@
+{
+  "name": "Óptica Anthony",
+  "description": "Diagnóstico visual y atención personalizada en La Alborada, Guayaquil. Lentes, monturas, lentes de contacto y servicio a domicilio. Agenda tu cita.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

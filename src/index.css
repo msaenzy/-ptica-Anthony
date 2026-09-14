@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #F5FAFC;
+  --color-brand-navy: #12293F;
+  --color-brand-teal: #1E8C99;
+  --color-brand-blue: #2E5FA3;
+
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-navy);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Fallback visible by default for SEO and no-JS accessibility */
+.reveal-init {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Observer driven scroll-reveal classes */
+.reveal-hidden-up {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reveal-visible-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-hidden-scale {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.reveal-visible-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-hidden-left {
+  opacity: 0;
+  transform: translateX(-32px);
+}
+
+.reveal-visible-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-hidden-right {
+  opacity: 0;
+  transform: translateX(32px);
+}
+
+.reveal-visible-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Marquee infinite scroll for testimonials */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init,
+  .reveal-hidden-up,
+  .reveal-hidden-scale,
+  .reveal-hidden-left,
+  .reveal-hidden-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-marquee {
+    animation: none;
+    overflow-x: auto;
+  }
+}
